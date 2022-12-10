@@ -66,7 +66,7 @@ def meal_id(datacol):
 st.write("""
 ## Demand Forecasting Example
 ###  Bài tập lớn Khoa học Dữ liệu trong Kinh doanh - Nhóm 4
-- Link to Slides:
+- Link to Slides: https://docs.google.com/presentation/d/14jJKPijZ19T2SSawyzjnSwRxOGbcuqqB/edit?usp=sharing&ouid=100556651259626836153&rtpof=true&sd=true
 
 NHÓM 4:
 

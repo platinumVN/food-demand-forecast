@@ -12,9 +12,6 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 
 
-# streamlit run "c:/Users/ICMTX-30001/OneDrive/HCMUT - BÁCH KHOA/Học kì 221/_IM4019 - KHOA HỌC DỮ LIỆU TKD/Bài tập lớn/demand_forecast/demand_forecast_app.py"
-
-
 def center_id(datacol):
     center_id_val_index_n = []
     for i in datacol:
@@ -59,7 +56,7 @@ def meal_id(datacol):
 st.write("""
 ## Demand Forecasting Example
 ###  Bài tập lớn Khoa học Dữ liệu trong Kinh doanh - Nhóm 4
-- Link to Slides:
+- Link to Slides: https://docs.google.com/presentation/d/14jJKPijZ19T2SSawyzjnSwRxOGbcuqqB/edit#slide=id.g1b4afed002d_3_5540
 
 NHÓM 4:
 

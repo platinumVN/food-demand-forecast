@@ -7,19 +7,12 @@ warnings.filterwarnings('ignore')
 
 from sklearn.preprocessing import OneHotEncoder
 
-# import os 
-# os.system('streamlit run "c:/Users/ICMTX-30001/OneDrive/HCMUT - BÁCH KHOA/Học kì 221/_IM4019 - KHOA HỌC DỮ LIỆU TKD/Bài tập lớn/demand_forecast/deploy_streamlit.py"')
-
-# pip install sklearn
-# import sklearnstreamlit run "c:/Users/ICMTX-30001/OneDrive/HCMUT - BÁCH KHOA/Học kì 221/_IM4019 - KHOA HỌC DỮ LIỆU TKD/Bài tập lớn/demand_forecast/deploy_streamlit.py"
-
-import sklearn
 from sklearn.metrics import r2_score,mean_squared_error
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 
 
-# streamlit run "c:/Users/ICMTX-30001/OneDrive/HCMUT - BÁCH KHOA/Học kì 221/_IM4019 - KHOA HỌC DỮ LIỆU TKD/Bài tập lớn/demand_forecast/deploy_streamlit.py" 
+# streamlit run "c:/Users/ICMTX-30001/OneDrive/HCMUT - BÁCH KHOA/Học kì 221/_IM4019 - KHOA HỌC DỮ LIỆU TKD/Bài tập lớn/demand_forecast/demand_forecast_app.py"
 
 
 def center_id(datacol):
@@ -66,7 +59,7 @@ def meal_id(datacol):
 st.write("""
 ## Demand Forecasting Example
 ###  Bài tập lớn Khoa học Dữ liệu trong Kinh doanh - Nhóm 4
-- Link to Slides: https://docs.google.com/presentation/d/14jJKPijZ19T2SSawyzjnSwRxOGbcuqqB/edit?usp=sharing&ouid=100556651259626836153&rtpof=true&sd=true
+- Link to Slides:
 
 NHÓM 4:
 
@@ -94,13 +87,11 @@ NHÓM 4:
 """)
 
 st.sidebar.header('Input Data')
-# uploaded_file = 'data/test.csv'
 
 uploaded_file = st.sidebar.file_uploader("Cách 1: Upload your input CSV file", type=["csv"])
 
 if uploaded_file is not None:
-    # input_df = pd.read_csv(uploaded_file)
-    test = pd.read_csv(uploaded_file)
+    input_df = pd.read_csv(uploaded_file)
 else:
     def user_input_features():
         st.sidebar.write('Cách 2: Manually input your data')
@@ -133,55 +124,26 @@ else:
         
         features = pd.DataFrame(data, index=[0])
         return features
-    test = user_input_features() #input_df
-
-# center_id_val_index_n = center_id(input_df.center_id) 
-# input_df.center_id = center_id_val_index_n
-
-# meal_id_val_index_n = meal_id(input_df.meal_id)
-# input_df.meal_id = meal_id_val_index_n
-
-# f_input_df = input_df.loc[:,['week','center_id','meal_id','checkout_price','base_price','emailer_for_promotion',
-#                  'homepage_featured']]
-# final_input_df_1 = pd.get_dummies(f_input_df, dummy_na = True)
-
-# Instead of pd.get_dummies:===
-# oneh = OneHotEncoder(handle_unknown="ignore")
-# oneh.fit(f_input_df)
-# final_input_df = oneh.transform(f_input_df)
-# test = pd.read_csv('data/test.csv')
-
-
+    input_df = user_input_features() #input_df
 
 exec_button = st.sidebar.button('Predict')
 if exec_button:
-    # st.write('Final input into our model:')
-    # st.write(final_input_df_1)
-    # st.write(final_input_df)
-    # test_predict = RFRmodel.predict(final_input_df_1)
-    # input_df['num_orders'] = test_predict
-    # result =  input_df.loc[:,['id','num_orders']]
-    # st.write(result)
-    
-    # test = pd.read_csv('data/test.csv')
-    center_id_val_index_n = center_id(test.center_id) 
-    test.center_id = center_id_val_index_n
-    meal_id_val_index_n = meal_id(test.meal_id)
-    test.meal_id = meal_id_val_index_n
-    f_test = test.loc[:,['week','center_id','meal_id','checkout_price','base_price','emailer_for_promotion',
+    center_id_val_index_n = center_id(input_df.center_id) 
+    input_df.center_id = center_id_val_index_n
+    meal_id_val_index_n = meal_id(input_df.meal_id)
+    input_df.meal_id = meal_id_val_index_n
+    f_input = input_df.loc[:,['week','center_id','meal_id','checkout_price','base_price','emailer_for_promotion',
                     'homepage_featured']]
-    final_test = pd.get_dummies(f_test)
+    final_input = pd.get_dummies(f_input)
 
     st.write('Your input:')
-    # st.write(input_df)
-    st.write(test)
+    st.write(input_df)
 
     RFRmodel = pickle.load(open('finalized_model.pkl', 'rb'))
-    test_predict = RFRmodel.predict(final_test)
-    test['num_orders'] = test_predict
-    sample =  test.loc[:,['id','num_orders']]
+    df_predict = RFRmodel.predict(final_input)
+    input_df['num_orders'] = df_predict
+    sample =  input_df.loc[:,['id','num_orders']]
 
     st.subheader('Prediction result:')
-    sample =  test.loc[:,['id','num_orders']]
+    sample =  input_df.loc[:,['id','num_orders']]
     st.write(sample)
-

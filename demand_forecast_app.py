@@ -76,7 +76,6 @@ NHÓM 4:
     - hoặc nhập thủ công giá trị của từng biến đầu vào
     BƯỚC 2:
     - Nhấp chuột chọn "Predict"
-##### Tuy nhiên, thiếu ngủ quá chưa sửa xong để present, xin vui lòng chỉ sử dụng .csv test file (có cung cấp) huhu
 
 ###### Có link tải file test tại: https://drive.google.com/file/d/1vaHWY9PQApvjz8cgE8HlK8RGRPIb-QdI/view?usp=share_link
 

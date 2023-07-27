@@ -55,20 +55,7 @@ def meal_id(datacol):
 
 st.write("""
 ## Demand Forecasting Example
-###  Bài tập lớn Khoa học Dữ liệu trong Kinh doanh - Nhóm 4
-- Link to Slides: https://docs.google.com/presentation/d/14jJKPijZ19T2SSawyzjnSwRxOGbcuqqB/edit#slide=id.g1b4afed002d_3_5540
-
-NHÓM 4:
-
-🥲 Phạm Lâm Minh Duy
-
-😠 Trần Hoàng Long
-
-😘 Võ Lam Phương
-
-😎 Phan Lê Anh	Thư
-
-🥰 Nguyễn Mai Hoàng Yến
+- Link to Slides: https://docs.google.com/presentation/d/1YDt9aR-OKCc5c8nbO74LVWCJ648hDRrs/edit?usp=sharing&ouid=100988340872896613643&rtpof=true&sd=true
 
     =============== Cách sử dụng ===============
     BƯỚC 1:
@@ -77,7 +64,7 @@ NHÓM 4:
     BƯỚC 2:
     - Nhấp chuột chọn "Predict"
 
-###### Có link tải file test tại: https://drive.google.com/file/d/1vaHWY9PQApvjz8cgE8HlK8RGRPIb-QdI/view?usp=share_link
+###### Tải file test tại: https://drive.google.com/file/d/1vaHWY9PQApvjz8cgE8HlK8RGRPIb-QdI/view?usp=share_link
 
 ---
 """)

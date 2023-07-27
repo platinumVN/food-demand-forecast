@@ -55,6 +55,7 @@ def meal_id(datacol):
 
 st.write("""
 ## Demand Forecasting Example
+---
 - Link to Slides: https://docs.google.com/presentation/d/1YDt9aR-OKCc5c8nbO74LVWCJ648hDRrs/edit?usp=sharing&ouid=100988340872896613643&rtpof=true&sd=true
 
     =============== Cách sử dụng ===============
@@ -65,7 +66,6 @@ st.write("""
     - Nhấp chuột chọn "Predict"
 
 ###### Tải file test tại: https://drive.google.com/file/d/1vaHWY9PQApvjz8cgE8HlK8RGRPIb-QdI/view?usp=share_link
-
 ---
 """)
 
